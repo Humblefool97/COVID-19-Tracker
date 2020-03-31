@@ -1,3 +1,21 @@
-ext{
+ext {
+    //SDK& tools
+    androidCompileSdkVersion = 29
+    androidTargetSdkVersion = 29
+    androidMinSdkVersion = 23
+    androidBuildToolsVersion = '29.0.3'
+    kotlinVersion = '1.2.0'
+    gradleVersion = '4.0.0-alpha01'
+    //App dependencies
+    appCompatVersion = '1.1.0'
+    ktxVersion = '1.2.0'
+    constraintLayoutVersion = '1.1.3'
+    //Dagger2
+    dagger = "2.24"
+    //Timber
+    timberVersion = "4.7.1"
+    //App
+    appVersionCode = 1
+    appVersionName = '1.0.0'
 
 }
