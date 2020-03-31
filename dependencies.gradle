@@ -12,7 +12,8 @@ ext {
     constraintLayoutVersion = '1.1.3'
     //Dagger2
     dagger = "2.24"
-
+    //Timber
+    timberVersion = "4.7.1"
     //App
     appVersionCode = 1
     appVersionName = '1.0.0'

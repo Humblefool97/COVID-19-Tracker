@@ -3,8 +3,20 @@ package com.tbs.covidtracker
 import com.tbs.covidtracker.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
+import dagger.android.HasAndroidInjector
+import timber.log.Timber
 
-class MainApplication:DaggerApplication() {
+class MainApplication : DaggerApplication(){
+
+    override fun onCreate() {
+        super.onCreate()
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        } else {
+            //TODO:Plant Crashlytics tree
+        }
+    }
+
     /**
      * Tell Dagger which [AndroidInjector] to use - in our case
      * [com.tbs.covidtracker.di.AppComponent]. `DaggerAppComponent`
