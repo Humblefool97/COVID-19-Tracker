@@ -33,6 +33,16 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    //lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    //Architecture components
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+
+    //Material
+    implementation "com.google.android.material:material:$materialVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+
     //Dagger
     implementation "com.google.dagger:dagger-android:$dagger"
     implementation "com.google.dagger:dagger-android-support:$dagger"

@@ -6,10 +6,18 @@ ext {
     androidBuildToolsVersion = '29.0.3'
     kotlinVersion = '1.2.0'
     gradleVersion = '4.0.0-alpha01'
+    //lottie
+    lottieVersion = '3.4.0'
+    //Architecture components
+    lifecycleVersion = '2.2.0-alpha03'
     //App dependencies
     appCompatVersion = '1.1.0'
     ktxVersion = '1.2.0'
     constraintLayoutVersion = '1.1.3'
+    //Coroutines
+    coroutinesVersion = '1.3.0'
+    //material version
+    materialVersion = '1.1.0-alpha07'
     //Dagger2
     dagger = "2.24"
     //Timber
