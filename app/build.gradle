@@ -33,9 +33,10 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation 'com.google.code.gson:gson:2.8.6'
+
     //lottie
     implementation "com.airbnb.android:lottie:$lottieVersion"
-
     //Architecture components
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
 
