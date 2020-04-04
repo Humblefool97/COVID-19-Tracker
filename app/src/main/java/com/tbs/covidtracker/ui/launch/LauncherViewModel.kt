@@ -15,7 +15,7 @@ class LauncherViewModel @Inject constructor() : ViewModel() {
 
     init {
         GlobalScope.launch {
-            delay(5 * 1000)
+            delay(2 * 1000)
             mutableLiveData.postValue(LaunchState.GoToMain())
         }
     }

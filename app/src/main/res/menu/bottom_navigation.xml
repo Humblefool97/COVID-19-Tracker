@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottomMenuWorld"
+        android:checked="false"
+        android:icon="@drawable/ic_world"
+        android:title="@string/menu_world" />
+
+    <item
+        android:id="@+id/bottomMenuCountries"
+        android:icon="@drawable/vc_flag"
+        android:title="@string/menu_countries" />
+
+</menu>
