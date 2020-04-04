@@ -2,7 +2,10 @@ package com.tbs.covidtracker.model
 
 import com.google.gson.annotations.SerializedName
 
-data class AllCases(
+/**
+ *
+ */
+data class AllCasesResponse(
     @SerializedName("cases")
     var totalCases: String = "",
     @SerializedName("deaths")
@@ -15,4 +18,4 @@ data class AllCases(
     var totalActive: String = "",
     @SerializedName("affectedCountries")
     var totalNumberOfAffectedCountries: String = ""
-)
+):BaseResponse()

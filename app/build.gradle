@@ -24,7 +24,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    flavorDimensions 'env'
+    productFlavors {
+        prd {
+            dimension 'env'
+            buildConfigField 'String','BASE_URL','"https://corona.lmao.ninja"'
+        }
+        mock {
+            dimension 'env'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -34,6 +47,9 @@ dependencies {
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation 'com.google.code.gson:gson:2.8.6'
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
     //lottie
     implementation "com.airbnb.android:lottie:$lottieVersion"

@@ -1,4 +1,4 @@
-package com.tbs.covidtracker.ui.launcher
+package com.tbs.covidtracker.ui.launch
 
 import androidx.lifecycle.ViewModel
 import com.tbs.covidtracker.di.customscope.ViewModelKey
