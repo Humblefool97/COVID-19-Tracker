@@ -1,4 +1,4 @@
-package com.tbs.covidtracker.ui.launcher
+package com.tbs.covidtracker.ui.launch
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
