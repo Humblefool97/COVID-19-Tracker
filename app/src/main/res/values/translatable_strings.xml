@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="menu_world">World</string>
+    <string name="menu_countries">Countries</string>
+    <string name="label_icon_attributes">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></string>
+    <string name="tile_cases">Cases</string>
+    <string name="tile_recovered">Recovered</string>
+    <string name="tile_death">Deaths</string>
+    <string name="tile_active">Active</string>
+    <string name="label_total">Total</string>
+    <string name="label_active">Active</string>
+    <string name="label_death">Death</string>
+</resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_8"
+    android:backgroundTint="@android:color/white"
+    app:cardCornerRadius="@dimen/dimen_8"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_8"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/countryImageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@android:drawable/ic_media_play" />
+
+        <TextView
+            android:id="@+id/countryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/colorGrey"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="@id/countryImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="India" />
+
+        <TextView
+            android:id="@+id/totalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/label_total"
+            android:textColor="@color/colorGrey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/countryTextView"
+            app:layout_constraintTop_toBottomOf="@id/countryTextView" />
+
+        <TextView
+            android:id="@+id/totalValTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/colorGrey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/totalTextView"
+            app:layout_constraintStart_toStartOf="@id/totalTextView"
+            app:layout_constraintTop_toBottomOf="@id/totalTextView"
+            tools:text="9643" />
+
+        <TextView
+            android:id="@+id/activeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/label_active"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/totalTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/activeValTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/activeTextView"
+            app:layout_constraintStart_toStartOf="@id/activeTextView"
+            app:layout_constraintTop_toBottomOf="@id/activeTextView"
+            tools:text="9643" />
+
+
+        <TextView
+            android:id="@+id/deathTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/label_death"
+            android:textColor="@color/color_danger"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/totalTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/guideline8" />
+
+        <TextView
+            android:id="@+id/deathValTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/color_danger"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/deathTextView"
+            app:layout_constraintStart_toStartOf="@id/deathTextView"
+            app:layout_constraintTop_toBottomOf="@id/deathTextView"
+            tools:text="9643" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.37721518" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6556962" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+

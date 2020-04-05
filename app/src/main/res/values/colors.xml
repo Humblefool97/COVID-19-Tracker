@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="mainBlue">#009DDF</color>
+    <color name="someWhite">#F2F7F4</color>
+    <color name="colorGrey">#47525E</color>
 
     <color name="colorPrimary">@color/mainBlue</color>
     <color name="colorPrimaryDark">#0078B8</color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="colorScreenBg">@color/someWhite</color>
+    <color name="color_danger">#F95F62</color>
+    <color name="color_active">@color/colorGrey</color>
 </resources>

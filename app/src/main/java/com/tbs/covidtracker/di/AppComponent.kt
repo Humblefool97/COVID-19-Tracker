@@ -1,7 +1,6 @@
 package com.tbs.covidtracker.di
 
 import com.tbs.covidtracker.MainApplication
-import com.tbs.covidtracker.network.CovidApiService
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule

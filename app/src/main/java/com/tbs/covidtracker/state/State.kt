@@ -1,4 +1,4 @@
-package com.tbs.covidtracker
+package com.tbs.covidtracker.state
 
 sealed class State<T>(
     val data: T? = null,
