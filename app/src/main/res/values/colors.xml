@@ -7,4 +7,5 @@
     <color name="colorPrimaryDark">#0078B8</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorScreenBg">@color/someWhite</color>
+    <color name="color_danger">#F95F62</color>
 </resources>

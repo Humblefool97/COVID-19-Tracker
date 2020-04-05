@@ -8,11 +8,11 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class HomeActivity : DaggerAppCompatActivity() {
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_home)
+        setUpToolbar()
         bottomNavView.setOnNavigationItemReselectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.bottomMenuWorld -> {
@@ -29,6 +29,14 @@ class HomeActivity : DaggerAppCompatActivity() {
             }
         }
         bottomNavView.selectedItemId = R.id.bottomMenuWorld
+    }
+
+    private fun setUpToolbar() {
+        setSupportActionBar(toolBar)
+        supportActionBar?.let {
+            it.title = getString(R.string.app_name)
+            it.setDisplayHomeAsUpEnabled(true)
+        }
     }
 
     companion object {

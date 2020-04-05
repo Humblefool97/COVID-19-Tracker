@@ -41,7 +41,6 @@ class AllCasesFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpToolbar()
         allCasesViewModel.fetchAllCases().observe(this, Observer { state ->
             when (state) {
                 is State.Success -> {
@@ -79,14 +78,6 @@ class AllCasesFragment : DaggerFragment() {
                 }
             }
         })
-    }
-
-    private fun setUpToolbar() {
-        (activity as HomeActivity).setSupportActionBar(toolBar)
-        (activity as HomeActivity).supportActionBar?.let {
-            it.title = getString(R.string.app_name)
-            it.setDisplayHomeAsUpEnabled(true)
-        }
     }
 
     private fun setTileData(tile: View, icon: Int, title: String, number: String) {

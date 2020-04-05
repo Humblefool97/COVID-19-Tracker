@@ -8,4 +8,7 @@
     <string name="tile_recovered">Recovered</string>
     <string name="tile_death">Deaths</string>
     <string name="tile_active">Active</string>
+    <string name="label_total">Total</string>
+    <string name="label_active">Active</string>
+    <string name="label_death">Death</string>
 </resources>
