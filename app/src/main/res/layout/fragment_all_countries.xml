@@ -5,11 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_64"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/someWhite"
+            app:iconifiedByDefault="false"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:queryHint="@string/search_hint" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/someWhite">
+        android:layout_gravity="fill_vertical"
+        android:background="@color/someWhite"
+        android:focusableInTouchMode="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,7 +42,6 @@
                 android:layout_height="match_parent" />
 
             <include layout="@layout/layout_progress" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

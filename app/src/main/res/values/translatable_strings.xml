@@ -11,4 +11,5 @@
     <string name="label_total">Total</string>
     <string name="label_active">Active</string>
     <string name="label_death">Death</string>
+    <string name="search_hint">Search by Country name.Ex:India</string>
 </resources>
