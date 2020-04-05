@@ -1,19 +1,16 @@
 package com.tbs.covidtracker.di
 
-import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.tbs.covidtracker.AllCasesRepository
 import com.tbs.covidtracker.BuildConfig
-import com.tbs.covidtracker.network.CovidApiService
+import com.tbs.covidtracker.network.COVIDApiService
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -53,7 +50,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitService(retrofit: Retrofit): CovidApiService {
-        return retrofit.create(CovidApiService::class.java)
+    fun provideRetrofitService(retrofit: Retrofit): COVIDApiService {
+        return retrofit.create(COVIDApiService::class.java)
     }
 }

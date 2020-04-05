@@ -3,7 +3,7 @@ package com.tbs.covidtracker
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.tbs.covidtracker.model.AllCasesResponse
-import com.tbs.covidtracker.network.CovidApiService
+import com.tbs.covidtracker.network.COVIDApiService
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -12,7 +12,7 @@ import retrofit2.Response
 import timber.log.Timber
 import javax.inject.Inject
 
-class AllCasesRepository @Inject constructor(val apiService: CovidApiService) {
+class AllCasesRepository @Inject constructor(val apiService: COVIDApiService) {
 
     fun getAllCases(): LiveData<AllCasesResponse> {
         val data = MutableLiveData<AllCasesResponse>()
