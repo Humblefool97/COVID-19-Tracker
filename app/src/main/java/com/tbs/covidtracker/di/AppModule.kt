@@ -3,6 +3,7 @@ package com.tbs.covidtracker.di
 import android.app.Application
 import android.content.Context
 import android.net.wifi.WifiManager
+import com.tbs.covidtracker.MainApplication
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -14,8 +15,9 @@ import javax.inject.Singleton
  */
 @Module
 class AppModule {
+
     @Provides
-    fun provideAppContext(application: Application): Context {
+    fun provideAppContext(application: MainApplication): Context {
         return application.applicationContext
     }
     @Provides

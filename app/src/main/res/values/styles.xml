@@ -1,10 +1,7 @@
 <resources>
 
-    <style name="ToolbarTheme" parent="Widget.MaterialComponents.Toolbar">
-        <item name="android:layout_height">?attr/actionBarSize</item>
-        <item name="android:elevation">4dp</item>
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:layout_width">0dp</item>
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:foreground">@color/colorPrimary</item>
     </style>
 </resources>

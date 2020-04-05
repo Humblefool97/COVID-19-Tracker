@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/someWhite">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar"
-        style="@style/ToolbarTheme"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:foregroundTint="@color/colorPrimary"
+        android:theme="@style/ToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/casesCardView"
@@ -56,6 +60,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/activeCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
@@ -69,6 +74,8 @@
     </androidx.cardview.widget.CardView>
 
     <include layout="@layout/layout_guidelines_all_cases" />
+
+    <include layout="@layout/layout_progress" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

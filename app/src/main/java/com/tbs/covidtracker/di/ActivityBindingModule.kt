@@ -2,6 +2,7 @@ package com.tbs.covidtracker.di
 
 import com.tbs.covidtracker.HomeActivity
 import com.tbs.covidtracker.di.customscope.ActivityScoped
+import com.tbs.covidtracker.ui.allcases.AllCasesModule
 import com.tbs.covidtracker.ui.launch.LauncherActivity
 import com.tbs.covidtracker.ui.launch.LauncherModule
 import dagger.Module
@@ -15,7 +16,9 @@ abstract class ActivityBindingModule {
     internal abstract fun launcherActivity(): LauncherActivity
 
     @ActivityScoped
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+        modules = [AllCasesModule::class]
+    )
     internal abstract fun launchHomeActivity(): HomeActivity
 
 }

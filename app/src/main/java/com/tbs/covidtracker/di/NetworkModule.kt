@@ -1,8 +1,10 @@
 package com.tbs.covidtracker.di
 
 import android.app.Application
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.tbs.covidtracker.AllCasesRepository
 import com.tbs.covidtracker.BuildConfig
 import com.tbs.covidtracker.network.CovidApiService
 import dagger.Module
@@ -19,7 +21,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpCache(application: Application): Cache {
+    fun provideOkHttpCache(application: Context): Cache {
         val cacheSize = 10 * 1024 * 1024L //10MB Cache
         return Cache(application.cacheDir, cacheSize)
     }
@@ -54,5 +56,4 @@ class NetworkModule {
     fun provideRetrofitService(retrofit: Retrofit): CovidApiService {
         return retrofit.create(CovidApiService::class.java)
     }
-
 }
