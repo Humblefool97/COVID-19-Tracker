@@ -1,5 +1,5 @@
 package com.tbs.covidtracker.model
 
 data class AffectedCountriesListResponse(
-    var affectedCountryListResponse: List<AffectedCountryResponse> = emptyList()
+    var affectedCountryListResponse: MutableList<AffectedCountryResponse> = mutableListOf()
 ) : BaseResponse()

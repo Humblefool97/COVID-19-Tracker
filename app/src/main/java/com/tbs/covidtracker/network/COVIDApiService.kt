@@ -11,6 +11,6 @@ interface COVIDApiService {
     fun getWorldData(): Call<AllCasesResponse>
 
     @GET("countries")
-    fun getAllCountriesData(): Call<AffectedCountriesListResponse>
+    fun getAllCountriesData(): Call<List<AffectedCountryResponse>>
 
 }

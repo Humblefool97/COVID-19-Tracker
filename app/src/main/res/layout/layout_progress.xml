@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary"
     android:translationZ="90dp"
     android:visibility="gone"
-    tools:visibility="visible">
+    tools:visibility="gone">
 
     <ProgressBar
         android:id="@+id/progress"

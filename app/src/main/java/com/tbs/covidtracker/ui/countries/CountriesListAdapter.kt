@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.item_countries_list.view.*
 
 class CountriesListAdapter(
     private val context: Context,
-    var affectedCountriesList: ArrayList<AffectedCountryResponse>
+    var affectedCountriesList: List<AffectedCountryResponse>
 ) :
     RecyclerView.Adapter<CountriesListAdapter.CountriesViewHolder>() {
 
@@ -29,7 +29,7 @@ class CountriesListAdapter(
 
     override fun getItemCount(): Int = affectedCountriesList.size
 
-    fun setData(newList: ArrayList<AffectedCountryResponse>) {
+    fun setData(newList: List<AffectedCountryResponse>) {
         affectedCountriesList = newList
         notifyDataSetChanged()
     }
