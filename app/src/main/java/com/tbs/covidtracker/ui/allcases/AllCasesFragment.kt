@@ -9,15 +9,16 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.tbs.covidtracker.HomeActivity
 import com.tbs.covidtracker.R
 import com.tbs.covidtracker.state.State
 import com.tbs.covidtracker.util.viewModelProvider
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_worldwide.*
 import kotlinx.android.synthetic.main.layout_progress.*
+import timber.log.Timber
 import javax.inject.Inject
 
+@Suppress("IMPLICIT_CAST_TO_ANY")
 class AllCasesFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -81,16 +82,34 @@ class AllCasesFragment : DaggerFragment() {
     }
 
     private fun setTileData(tile: View, icon: Int, title: String, number: String) {
-
+        val color = getTextColor(title)
         tile.findViewById<ImageView>(R.id.dashBoardImage).setImageResource(icon)
         tile.findViewById<TextView>(R.id.tileTitleTextView).run {
             text = title
-
         }
-        tile.findViewById<TextView>(R.id.titleNumberTextView).text = number
+        val deathTextView = tile.findViewById<TextView>(R.id.titleNumberTextView)
+        deathTextView.apply {
+            text = number
+            if (color != -1)
+                setTextColor(resources.getColor(color))
+        }
+    }
+
+    private fun getTextColor(title: String): Int {
+        return when (title) {
+            getString(R.string.tile_cases) -> R.color.colorPrimary
+            getString(R.string.tile_recovered) -> R.color.colorPrimaryDark
+            getString(R.string.tile_death) -> R.color.color_danger
+            getString(R.string.tile_active) -> R.color.colorGrey
+            else -> {
+                Timber.tag(TAG).w("Invalid title")
+                -1
+            }
+        }
     }
 
     companion object {
+        const val TAG = "AllCasesFragment"
         fun replaceFragment(
             allCasesFragment: AllCasesFragment,
             containerId: Int,
