@@ -29,37 +29,26 @@
 
         <TextView
             android:id="@+id/countryTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ItemTitleTextStyle"
             android:layout_marginStart="16dp"
             android:layout_marginTop="@dimen/dimen_16"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorGrey"
-            android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@id/countryImageView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="India" />
 
         <TextView
             android:id="@+id/totalTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/label_total"
-            android:textColor="@color/colorGrey"
-            android:textSize="14sp"
+            style="@style/ItemSubtitleTextStyle"
             app:layout_constraintStart_toStartOf="@id/countryTextView"
             app:layout_constraintTop_toBottomOf="@id/countryTextView" />
 
         <TextView
             android:id="@+id/totalValTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif-light"
             android:textColor="@color/colorGrey"
-            android:textSize="14sp"
+            style="@style/ItemSubtitleTextStyle"
             app:layout_constraintEnd_toEndOf="@id/totalTextView"
             app:layout_constraintStart_toStartOf="@id/totalTextView"
             app:layout_constraintTop_toBottomOf="@id/totalTextView"
@@ -67,12 +56,9 @@
 
         <TextView
             android:id="@+id/activeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
             android:text="@string/label_active"
+            style="@style/ItemSubtitleTextStyle"
             android:textColor="@color/colorPrimary"
-            android:textSize="14sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/totalTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -80,12 +66,9 @@
 
         <TextView
             android:id="@+id/activeValTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif-light"
+            style="@style/ItemSubtitleTextStyle"
             android:textColor="@color/colorPrimary"
-            android:textSize="14sp"
+            android:layout_marginTop="@dimen/dimen_8"
             app:layout_constraintEnd_toEndOf="@id/activeTextView"
             app:layout_constraintStart_toStartOf="@id/activeTextView"
             app:layout_constraintTop_toBottomOf="@id/activeTextView"
@@ -94,12 +77,9 @@
 
         <TextView
             android:id="@+id/deathTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
+            style="@style/ItemSubtitleTextStyle"
             android:text="@string/label_death"
             android:textColor="@color/color_danger"
-            android:textSize="14sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/totalTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -107,12 +87,9 @@
 
         <TextView
             android:id="@+id/deathValTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif-light"
+            style="@style/ItemSubtitleTextStyle"
+            android:layout_marginTop="@dimen/dimen_8"
             android:textColor="@color/color_danger"
-            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@id/deathTextView"
             app:layout_constraintStart_toStartOf="@id/deathTextView"
             app:layout_constraintTop_toBottomOf="@id/deathTextView"

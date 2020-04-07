@@ -1,6 +1,27 @@
 <resources>
+
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:layout_width">0dp</item>
+        <item name="fontFamily">@font/app_font</item>
+    </style>
+
+
+    <style name="ItemTitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="fontFamily">@font/app_font</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+    <style name="ItemSubtitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="fontFamily">@font/app_font</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
     </style>
 </resources>

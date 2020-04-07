@@ -1,6 +1,7 @@
 package com.tbs.covidtracker.ui.launch
 
 import android.content.Intent
+import android.icu.text.NumberFormat
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -8,6 +9,7 @@ import com.tbs.covidtracker.HomeActivity
 import com.tbs.covidtracker.R
 import com.tbs.covidtracker.util.viewModelProvider
 import dagger.android.support.DaggerAppCompatActivity
+import java.util.*
 import javax.inject.Inject
 
 class LauncherActivity : DaggerAppCompatActivity() {
