@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription"
-        tools:src="@drawable/vc_recovery" />
+        tools:src="@drawable/vc_recovery_ex" />
 
     <TextView
         android:id="@+id/tileTitleTextView"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:backgroundTint="@android:color/white"
     app:cardCornerRadius="@dimen/dimen_16">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +36,7 @@
             style="@style/cardViewHorizontalSubTitleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_8"
             app:layout_constraintStart_toStartOf="@id/itemTitleTextView"
             app:layout_constraintTop_toBottomOf="@id/itemTitleTextView"
             tools:text="1,390,830" />

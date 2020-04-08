@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,26 +17,32 @@
             layout="@layout/layout_cardview_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_16"
+            android:layout_marginLeft="@dimen/dimen_16"
+            android:layout_marginRight="@dimen/dimen_16"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/hg1" />
 
         <include
             android:id="@+id/totalDeathsCardView"
             layout="@layout/layout_cardview_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_16"
+            android:layout_marginLeft="@dimen/dimen_16"
+            android:layout_marginRight="@dimen/dimen_16"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/totalCasesCardView" />
+            app:layout_constraintBottom_toTopOf="@id/guideline1"
+            app:layout_constraintTop_toBottomOf="@id/hg3" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/criticalCardView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:cardCornerRadius="@dimen/dimen_16"
             android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
             android:layout_marginEnd="@dimen/dimen_16"
-            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            android:backgroundTint="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/hg4"
             app:layout_constraintEnd_toStartOf="@id/guideline3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline1">
@@ -53,9 +59,12 @@
             android:id="@+id/ActiveCardView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:cardCornerRadius="@dimen/dimen_16"
             android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
             android:layout_marginEnd="@dimen/dimen_16"
-            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            android:backgroundTint="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/hg4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/criticalCardView"
             app:layout_constraintTop_toTopOf="@id/guideline1">
@@ -72,13 +81,15 @@
             android:id="@+id/recoveredCardView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:cardCornerRadius="@dimen/dimen_16"
             android:layout_marginStart="@dimen/dimen_16"
             android:layout_marginTop="@dimen/dimen_16"
             android:layout_marginEnd="@dimen/dimen_16"
+            android:backgroundTint="@android:color/white"
             app:layout_constraintBottom_toTopOf="@id/guideline4"
             app:layout_constraintEnd_toStartOf="@id/guideline3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideline2">
+            app:layout_constraintTop_toTopOf="@id/hg4">
 
             <include
                 layout="@layout/layout_cardview_regular"
@@ -92,12 +103,14 @@
             android:id="@+id/testCardView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:cardCornerRadius="@dimen/dimen_16"
             android:layout_marginTop="@dimen/dimen_16"
             android:layout_marginEnd="@dimen/dimen_16"
+            android:backgroundTint="@android:color/white"
             app:layout_constraintBottom_toTopOf="@id/guideline4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/ActiveCardView"
-            app:layout_constraintTop_toTopOf="@id/guideline2">
+            app:layout_constraintTop_toTopOf="@id/hg4">
 
             <include
                 layout="@layout/layout_cardview_regular"
@@ -120,25 +133,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.38" />
+            app:layout_constraintGuide_percent="0.31" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
+            android:id="@+id/hg4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.60" />
+            app:layout_constraintGuide_percent="0.52" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.85" />
+            app:layout_constraintGuide_percent="0.74" />
 
 
         <include layout="@layout/layout_progress" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hg2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.16" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hg3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.17" />
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+</ScrollView>

@@ -14,9 +14,9 @@
     <font
         android:font="@font/glacial_indifference_bold"
         android:fontStyle="normal"
-        android:fontWeight="700"
+        android:fontWeight="900"
 
-        app:font="@font/glacial_indifference_regular"
+        app:font="@font/glacial_indifference_bold"
         app:fontStyle="normal"
         app:fontWeight="700" />
     <!-- Italic -->
@@ -25,7 +25,7 @@
         android:fontStyle="italic"
         android:fontWeight="400"
 
-        app:font="@font/glacial_indifference_regular"
+        app:font="@font/glacial_indifference_italic"
         app:fontStyle="italic"
         app:fontWeight="400" />
 

@@ -10,10 +10,14 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.tbs.covidtracker.R
+import com.tbs.covidtracker.model.AllCasesResponse
 import com.tbs.covidtracker.state.State
 import com.tbs.covidtracker.util.viewModelProvider
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_worldwide.*
+import kotlinx.android.synthetic.main.layout_cardview_horizontal.view.*
+import kotlinx.android.synthetic.main.layout_cardview_regular.view.*
+import kotlinx.android.synthetic.main.layout_dashboard_text.view.*
 import kotlinx.android.synthetic.main.layout_progress.*
 import timber.log.Timber
 import javax.inject.Inject
@@ -46,32 +50,20 @@ class AllCasesFragment : DaggerFragment() {
             when (state) {
                 is State.Success -> {
                     progressContainer.visibility = View.GONE
-
-                    state.data?.let {
-                        setTileData(
-                            casesCardView
-                            , R.drawable.vc_diagnosis
-                            , getString(R.string.tile_cases)
-                            , it.totalCases
-                        )
-                        setTileData(
-                            recoveredCardView
-                            , R.drawable.vc_recovery
-                            , getString(R.string.tile_recovered)
-                            , it.totalRecovered
-                        )
-                        setTileData(
-                            deathsCardView
-                            , R.drawable.vc_dead
-                            , getString(R.string.tile_death)
-                            , it.totalDeaths
-                        )
-                        setTileData(
-                            activeCardView
-                            , R.drawable.vc_active
-                            , getString(R.string.tile_active)
-                            , it.totalActive
-                        )
+                    val allCasesResponse = state.data as AllCasesResponse
+                    with(allCasesResponse) {
+                        //Set Total cases
+                        setTotalCases()
+                        //Set Death cases
+                       setTotalDeaths()
+                        //Set Critical
+                        setCriticalCases()
+                        //Set Active
+                        setActiveCases()
+                        //Set Recovered
+                        setCoveredCases()
+                        //Set Tests
+                        setTests()
                     }
                 }
                 else -> {
@@ -79,6 +71,86 @@ class AllCasesFragment : DaggerFragment() {
                 }
             }
         })
+    }
+
+    private fun AllCasesResponse.setTests() {
+        testCardView.cardRegularImageView.setImageResource(R.drawable.vc_critical)
+        testCardView.cardRegularTitleText.run {
+            text = "Tests"
+            setTextColor(resources.getColor(R.color.colorPrimaryDark))
+        }
+        testCardView.cardRegularSubTitleText.run {
+            text = tests
+            setTextColor(resources.getColor(R.color.colorPrimaryDark))
+        }
+    }
+
+    private fun AllCasesResponse.setCoveredCases() {
+        recoveredCardView.cardRegularImageView.setImageResource(R.drawable.vc_critical)
+        recoveredCardView.cardRegularTitleText.run {
+            text = getString(R.string.tile_recovered)
+            setTextColor(resources.getColor(R.color.colorHope))
+        }
+        recoveredCardView.cardRegularSubTitleText.run {
+            text = totalRecovered
+            setTextColor(resources.getColor(R.color.colorHope))
+        }
+    }
+
+    private fun AllCasesResponse.setActiveCases() {
+        ActiveCardView.cardRegularImageView.setImageResource(R.drawable.vc_critical)
+        ActiveCardView.cardRegularTitleText.run {
+            text = getString(R.string.tile_active)
+            setTextColor(resources.getColor(R.color.color_danger))
+        }
+        ActiveCardView.cardRegularSubTitleText.run {
+            text = totalActive
+            setTextColor(resources.getColor(R.color.color_danger))
+        }
+    }
+
+    private fun AllCasesResponse.setCriticalCases() {
+        criticalCardView.cardRegularImageView.setImageResource(R.drawable.vc_critical)
+        criticalCardView.cardRegularTitleText.run {
+            text = "Critical"
+            setTextColor(resources.getColor(android.R.color.black))
+        }
+        criticalCardView.cardRegularSubTitleText.run {
+            text = critical
+            setTextColor(resources.getColor(android.R.color.black))
+        }
+    }
+
+    private fun AllCasesResponse.setTotalDeaths() {
+        totalDeathsCardView.itemImageView.setImageResource(R.drawable.vc_death)
+        totalDeathsCardView.itemTitleTextView.run {
+            text = resources.getString(R.string.tile_death)
+            setTextColor(resources.getColor(android.R.color.black))
+        }
+        totalDeathsCardView.itemSubtitleTextView.run {
+            text = totalDeaths
+            setTextColor(resources.getColor(android.R.color.black))
+        }
+        totalDeathsCardView.itemTodayCountTextView.run {
+            setTextColor(resources.getColor(android.R.color.black))
+            text = "+${todayDeaths}"
+        }
+    }
+
+    private fun AllCasesResponse.setTotalCases() {
+        totalCasesCardView.itemImageView.setImageResource(R.drawable.vc_cases)
+        totalCasesCardView.itemTitleTextView.run {
+            text = resources.getString(R.string.tile_cases)
+            setTextColor(resources.getColor(R.color.color_danger))
+        }
+        totalCasesCardView.itemSubtitleTextView.run {
+            text = totalCases
+            setTextColor(resources.getColor(R.color.color_danger))
+        }
+        totalCasesCardView.itemTodayCountTextView.run {
+            setTextColor(resources.getColor(R.color.color_danger))
+            text = "+$todayCases"
+        }
     }
 
     private fun setTileData(tile: View, icon: Int, title: String, number: String) {
