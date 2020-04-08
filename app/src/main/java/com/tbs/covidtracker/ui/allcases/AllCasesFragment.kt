@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.tbs.covidtracker.R
 import com.tbs.covidtracker.model.AllCasesResponse
 import com.tbs.covidtracker.state.State
+import com.tbs.covidtracker.util.Utilities
 import com.tbs.covidtracker.util.viewModelProvider
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_worldwide.*
@@ -55,7 +56,7 @@ class AllCasesFragment : DaggerFragment() {
                         //Set Total cases
                         setTotalCases()
                         //Set Death cases
-                       setTotalDeaths()
+                        setTotalDeaths()
                         //Set Critical
                         setCriticalCases()
                         //Set Active
@@ -74,37 +75,37 @@ class AllCasesFragment : DaggerFragment() {
     }
 
     private fun AllCasesResponse.setTests() {
-        testCardView.cardRegularImageView.setImageResource(R.drawable.vc_critical)
+        testCardView.cardRegularImageView.setImageResource(R.drawable.ivc_tests)
         testCardView.cardRegularTitleText.run {
             text = "Tests"
             setTextColor(resources.getColor(R.color.colorPrimaryDark))
         }
         testCardView.cardRegularSubTitleText.run {
-            text = tests
+            text = Utilities.getFormattedNumber(tests)
             setTextColor(resources.getColor(R.color.colorPrimaryDark))
         }
     }
 
     private fun AllCasesResponse.setCoveredCases() {
-        recoveredCardView.cardRegularImageView.setImageResource(R.drawable.vc_critical)
+        recoveredCardView.cardRegularImageView.setImageResource(R.drawable.vc_recovery)
         recoveredCardView.cardRegularTitleText.run {
             text = getString(R.string.tile_recovered)
             setTextColor(resources.getColor(R.color.colorHope))
         }
         recoveredCardView.cardRegularSubTitleText.run {
-            text = totalRecovered
+            text = Utilities.getFormattedNumber(totalRecovered)
             setTextColor(resources.getColor(R.color.colorHope))
         }
     }
 
     private fun AllCasesResponse.setActiveCases() {
-        ActiveCardView.cardRegularImageView.setImageResource(R.drawable.vc_critical)
+        ActiveCardView.cardRegularImageView.setImageResource(R.drawable.vc_active_cases)
         ActiveCardView.cardRegularTitleText.run {
             text = getString(R.string.tile_active)
             setTextColor(resources.getColor(R.color.color_danger))
         }
         ActiveCardView.cardRegularSubTitleText.run {
-            text = totalActive
+            text = Utilities.getFormattedNumber(totalActive)
             setTextColor(resources.getColor(R.color.color_danger))
         }
     }
@@ -128,12 +129,12 @@ class AllCasesFragment : DaggerFragment() {
             setTextColor(resources.getColor(android.R.color.black))
         }
         totalDeathsCardView.itemSubtitleTextView.run {
-            text = totalDeaths
+            text = Utilities.getFormattedNumber(totalDeaths)
             setTextColor(resources.getColor(android.R.color.black))
         }
         totalDeathsCardView.itemTodayCountTextView.run {
             setTextColor(resources.getColor(android.R.color.black))
-            text = "+${todayDeaths}"
+            text = "+${Utilities.getFormattedNumber(todayDeaths)}"
         }
     }
 
@@ -144,39 +145,12 @@ class AllCasesFragment : DaggerFragment() {
             setTextColor(resources.getColor(R.color.color_danger))
         }
         totalCasesCardView.itemSubtitleTextView.run {
-            text = totalCases
+            text = Utilities.getFormattedNumber(totalCases)
             setTextColor(resources.getColor(R.color.color_danger))
         }
         totalCasesCardView.itemTodayCountTextView.run {
             setTextColor(resources.getColor(R.color.color_danger))
-            text = "+$todayCases"
-        }
-    }
-
-    private fun setTileData(tile: View, icon: Int, title: String, number: String) {
-        val color = getTextColor(title)
-        tile.findViewById<ImageView>(R.id.dashBoardImage).setImageResource(icon)
-        tile.findViewById<TextView>(R.id.tileTitleTextView).run {
-            text = title
-        }
-        val deathTextView = tile.findViewById<TextView>(R.id.titleNumberTextView)
-        deathTextView.apply {
-            text = number
-            if (color != -1)
-                setTextColor(resources.getColor(color))
-        }
-    }
-
-    private fun getTextColor(title: String): Int {
-        return when (title) {
-            getString(R.string.tile_cases) -> R.color.colorPrimary
-            getString(R.string.tile_recovered) -> R.color.colorPrimaryDark
-            getString(R.string.tile_death) -> R.color.color_danger
-            getString(R.string.tile_active) -> R.color.colorGrey
-            else -> {
-                Timber.tag(TAG).w("Invalid title")
-                -1
-            }
+            text = "+${Utilities.getFormattedNumber(todayCases)}"
         }
     }
 
