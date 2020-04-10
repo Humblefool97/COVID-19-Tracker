@@ -4,6 +4,7 @@
     <color name="someWhite">#F2F7F4</color>
     <color name="colorGrey">#47525E</color>
     <color name="colorGreen">#9B6B3C</color>
+    <color name="colorLightSeaGreen">#1ab3ac</color>
 
     <color name="colorPrimary">@color/mainBlue</color>
     <color name="colorPrimaryDark">#0078B8</color>
@@ -12,4 +13,5 @@
     <color name="color_danger">#F95F62</color>
     <color name="color_active">@color/colorGrey</color>
     <color name="colorHope">@color/colorGreen</color>
+    <color name="colorStateInactive">@color/colorLightSeaGreen</color>
 </resources>

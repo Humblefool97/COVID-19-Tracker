@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.tbs.covidtracker.R
 import com.tbs.covidtracker.model.AffectedCountryResponse
 import com.tbs.covidtracker.state.State
+import com.tbs.covidtracker.ui.country.CountryDetailFragment
 import com.tbs.covidtracker.util.viewModelProvider
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_all_countries.*
@@ -28,11 +29,8 @@ class AffectedCountriesFragment : DaggerFragment()
     lateinit var affectedCountriesViewModel: AffectedCountriesViewModel
     lateinit var recyclerViewAdapter: CountriesListAdapter
     private var affectedCountriesList: List<AffectedCountryResponse> = mutableListOf()
-    private var searchList: List<AffectedCountryResponse> = mutableListOf()
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
+    private var searchList: List<AffectedCountryResponse> = affectedCountriesList
+    private var countryDetailFragment: CountryDetailFragment = CountryDetailFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +49,26 @@ class AffectedCountriesFragment : DaggerFragment()
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setUpSearchView()
+        swipeRefreshLayout.setOnRefreshListener {
+            fetchData()
+        }
+        fetchData()
+    }
+
+    private fun fetchData() {
+        progressContainer.visibility = View.VISIBLE
+
         affectedCountriesViewModel.fetchAffectedCountries().observe(this, Observer { state ->
+            with(swipeRefreshLayout) {
+                if (isRefreshing)
+                    isRefreshing = false
+            }
             when (state) {
                 is State.Success -> {
                     progressContainer.visibility = View.GONE
                     state.data?.let { response ->
                         affectedCountriesList = response
+                        searchList = affectedCountriesList
                         if (response.isNotEmpty()) {
                             recyclerViewAdapter.setData(response)
                         }
@@ -64,7 +76,6 @@ class AffectedCountriesFragment : DaggerFragment()
                 }
             }
         })
-
     }
 
     private fun setUpSearchView() {
@@ -75,12 +86,23 @@ class AffectedCountriesFragment : DaggerFragment()
         recyclerViewAdapter = CountriesListAdapter(
             activity as Context,
             emptyList()
-        )
+        ) { position ->
+            val affectedCountryResponse = searchList[position]
+            //TODO:See how fragment manager is handled in iosched
+            fragmentManager?.let {
+                CountryDetailFragment.instantiate(
+                    R.id.fragmentContainer,
+                    countryDetailFragment,
+                    it, affectedCountryResponse
+                )
+            }
+        }
         with(countriesRecyclerView) {
             adapter = recyclerViewAdapter
             layoutManager = LinearLayoutManager(context)
         }
     }
+
 
     companion object {
         const val TAG = "CountriesFragment"
@@ -102,10 +124,10 @@ class AffectedCountriesFragment : DaggerFragment()
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        val newList = affectedCountriesList.filter {
-            it.country.contains(newText.toString(),true)
+        searchList = affectedCountriesList.filter {
+            it.country.contains(newText.toString(), true)
         }
-        recyclerViewAdapter.setData(newList)
+        recyclerViewAdapter.setData(searchList)
         return true
     }
 }

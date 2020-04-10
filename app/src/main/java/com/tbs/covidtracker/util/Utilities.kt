@@ -16,10 +16,8 @@ class Utilities {
                 } catch (numberFormatException: NumberFormatException) {
                     Timber.tag("LOCAL").e(numberFormatException)
                 }
-
             }
             return numberTobeFormatted
-
         }
     }
 }

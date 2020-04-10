@@ -1,13 +1,17 @@
 package com.tbs.covidtracker.model
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /**
  *
  */
-data class AllCasesResponse(
+@Parcelize
+open class AllCasesResponse(
     @SerializedName("cases")
     var totalCases: String = "",
+    @SerializedName("countryInfo")
+    var countryInfo: CountryInfo? = null,
     @SerializedName("todayCases")
     var todayCases: String = "",
     @SerializedName("deaths")

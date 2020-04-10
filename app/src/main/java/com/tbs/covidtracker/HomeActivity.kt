@@ -1,13 +1,18 @@
 package com.tbs.covidtracker
 
 import android.os.Bundle
-import com.tbs.covidtracker.ui.allcases.AllCasesFragment
+import android.view.MenuItem
+import android.view.View
+import androidx.core.view.isVisible
+import com.tbs.covidtracker.ui.allcases.DetailsFragment
 import com.tbs.covidtracker.ui.countries.AffectedCountriesFragment
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import timber.log.Timber
 
 class HomeActivity : DaggerAppCompatActivity() {
+    private var detailsFragment: DetailsFragment = DetailsFragment()
+    private var affectedCountriesFragment: AffectedCountriesFragment = AffectedCountriesFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,11 +20,11 @@ class HomeActivity : DaggerAppCompatActivity() {
         setUpToolbar()
 
         bottomNavView.setOnNavigationItemSelectedListener { menuItem ->
-            when(menuItem.itemId){
+            when (menuItem.itemId) {
                 R.id.bottomMenuWorld -> {
                     Timber.tag(TAG).d("bottomMenuWorld selected..")
-                    AllCasesFragment.replaceFragment(
-                        AllCasesFragment(),
+                    DetailsFragment.replaceFragment(
+                        detailsFragment,
                         R.id.fragmentContainer,
                         supportFragmentManager
                     )
@@ -27,11 +32,11 @@ class HomeActivity : DaggerAppCompatActivity() {
                 }
                 R.id.bottomMenuCountries -> {
                     Timber.tag(TAG).d("bottomMenuCountries selected...")
-                     AffectedCountriesFragment.instantiateFragment(
-                         AffectedCountriesFragment(),
-                         R.id.fragmentContainer,
-                         supportFragmentManager
-                     )
+                    AffectedCountriesFragment.instantiateFragment(
+                        affectedCountriesFragment,
+                        R.id.fragmentContainer,
+                        supportFragmentManager
+                    )
                     true
                 }
                 else -> {
@@ -49,6 +54,16 @@ class HomeActivity : DaggerAppCompatActivity() {
             it.title = getString(R.string.app_name)
             it.setDisplayHomeAsUpEnabled(true)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                bottomNavView.visibility = View.VISIBLE
+                onBackPressed()
+            }
+        }
+        return true
     }
 
     companion object {
