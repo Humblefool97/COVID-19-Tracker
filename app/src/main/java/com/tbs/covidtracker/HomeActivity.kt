@@ -6,6 +6,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.tbs.covidtracker.ui.allcases.DetailsFragment
 import com.tbs.covidtracker.ui.countries.AffectedCountriesFragment
+import com.tbs.covidtracker.util.isVisible
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import timber.log.Timber
@@ -59,11 +60,16 @@ class HomeActivity : DaggerAppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                bottomNavView.visibility = View.VISIBLE
                 onBackPressed()
             }
         }
         return true
+    }
+
+    override fun onBackPressed() {
+        if(!bottomNavView.isVisible())
+             bottomNavView.visibility = View.VISIBLE
+        super.onBackPressed()
     }
 
     companion object {

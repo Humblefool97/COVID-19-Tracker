@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.transition.Fade
+import androidx.transition.Slide
 import com.tbs.covidtracker.R
 import com.tbs.covidtracker.model.AffectedCountryResponse
 import com.tbs.covidtracker.state.State
@@ -112,6 +114,16 @@ class AffectedCountriesFragment : DaggerFragment()
             containerId: Int,
             fragmentManager: FragmentManager
         ) {
+
+            //Add animation:SlideIn/SlideOut animation
+            val slideOut = Fade()
+            slideOut.duration = 300
+            allCasesFragment.exitTransition = slideOut
+
+            val slideIn = Fade()
+            slideIn.duration = 300
+            allCasesFragment.enterTransition = slideIn
+
             fragmentManager
                 .beginTransaction()
                 .replace(containerId, allCasesFragment)
