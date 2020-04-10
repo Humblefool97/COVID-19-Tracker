@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.transition.Slide
 import com.bumptech.glide.Glide
 import com.tbs.covidtracker.HomeActivity
 import com.tbs.covidtracker.R
@@ -73,9 +74,19 @@ class CountryDetailFragment : DaggerFragment() {
             , fragment: CountryDetailFragment
             , fragmentManager: FragmentManager
             , affectedCountryResponse: AffectedCountryResponse
+            ,previousFragment: Fragment
         ) {
             val bundle = bundleOf(DetailsFragment.BUNDLE_DATA_COUNTRY to affectedCountryResponse)
             fragment.arguments = bundle
+            //Add animation:SlideIn/SlideOut animation
+            val slideOut = Slide()
+            slideOut.duration = 300
+            fragment.exitTransition = slideOut
+
+            val slideIn = Slide()
+            slideIn.duration = 300
+            fragment.enterTransition = slideIn
+
             fragmentManager
                 .beginTransaction()
                 .replace(containerId, fragment)

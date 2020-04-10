@@ -93,7 +93,8 @@ class AffectedCountriesFragment : DaggerFragment()
                 CountryDetailFragment.instantiate(
                     R.id.fragmentContainer,
                     countryDetailFragment,
-                    it, affectedCountryResponse
+                    it, affectedCountryResponse,
+                    this
                 )
             }
         }
