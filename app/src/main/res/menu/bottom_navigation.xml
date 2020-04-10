@@ -3,7 +3,7 @@
     <item
         android:id="@+id/bottomMenuWorld"
         android:checked="false"
-        android:icon="@drawable/ic_world"
+        android:icon="@drawable/vc_world"
         android:title="@string/menu_world" />
 
     <item
