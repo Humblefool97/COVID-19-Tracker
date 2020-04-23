@@ -30,9 +30,6 @@ android {
             dimension 'env'
             buildConfigField 'String','BASE_URL','"https://corona.lmao.ninja"'
         }
-        mock {
-            dimension 'env'
-        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
