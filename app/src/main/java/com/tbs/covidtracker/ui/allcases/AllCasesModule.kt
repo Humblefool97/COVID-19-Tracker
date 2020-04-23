@@ -1,6 +1,7 @@
 package com.tbs.covidtracker.ui.allcases
 
 import androidx.lifecycle.ViewModel
+import com.tbs.covidtracker.di.customscope.ChildFragmentScoped
 import com.tbs.covidtracker.di.customscope.FragmentScoped
 import com.tbs.covidtracker.di.customscope.ViewModelKey
 import dagger.Binds
@@ -11,11 +12,11 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class AllCasesModule {
     /**
-     * Provides [dagger.android.AndroidInjector] for [AllCasesFragment]
+     * Provides [dagger.android.AndroidInjector] for [DetailsFragment]
      */
-    @FragmentScoped
+    @ChildFragmentScoped
     @ContributesAndroidInjector
-    abstract fun bindAllCasesFragment(): AllCasesFragment
+    abstract fun bindAllCasesFragment(): DetailsFragment
     /**
      * The ViewModels are created by Dagger in a map. Via the @ViewModelKey, we define that we
      * want to get a [AllCasesViewModel] class.

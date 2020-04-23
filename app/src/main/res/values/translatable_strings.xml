@@ -4,12 +4,15 @@
     <string name="menu_world">World</string>
     <string name="menu_countries">Countries</string>
     <string name="label_icon_attributes">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></string>
-    <string name="tile_cases">Cases</string>
+    <string name="tile_cases">Total Cases</string>
     <string name="tile_recovered">Recovered</string>
-    <string name="tile_death">Deaths</string>
+    <string name="tile_death">Total Deaths</string>
     <string name="tile_active">Active</string>
     <string name="label_total">Total</string>
     <string name="label_active">Active</string>
     <string name="label_death">Death</string>
     <string name="search_hint">Search by Country name.Ex:India</string>
+    <string name="label_plus_cases">+ %1$s </string>
+    <string name="label_plus_death">+ %1$s</string>
+
 </resources>

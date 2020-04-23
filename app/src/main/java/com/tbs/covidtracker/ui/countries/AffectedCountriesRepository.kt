@@ -19,7 +19,8 @@ class AffectedCountriesRepository @Inject constructor(var covidApiService: COVID
     fun getAffectedCountries(): LiveData<List<AffectedCountryResponse>> {
         val affectedCountriedLiveData = MutableLiveData<List<AffectedCountryResponse>>()
         GlobalScope.launch {
-            covidApiService.getAllCountriesData().enqueue(object :
+            val map = hashMapOf("sort" to "cases")
+            covidApiService.getAllCountriesData(map).enqueue(object :
                 Callback<List<AffectedCountryResponse>> {
                 override fun onFailure(call: Call<List<AffectedCountryResponse>>, t: Throwable) {
                     t.printStackTrace()

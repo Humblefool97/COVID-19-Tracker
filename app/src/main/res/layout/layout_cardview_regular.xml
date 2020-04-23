@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/cardRegularImageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/vc_critical" />
+
+    <TextView
+        android:id="@+id/cardRegularTitleText"
+        style="@style/cardViewRegularTitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/cardRegularImageView"
+        app:layout_constraintStart_toStartOf="@id/cardRegularImageView"
+        app:layout_constraintTop_toBottomOf="@id/cardRegularImageView"
+        tools:text="Critical" />
+
+    <TextView
+        android:id="@+id/cardRegularSubTitleText"
+        style="@style/cardViewRegularSubTitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/cardRegularTitleText"
+        app:layout_constraintStart_toStartOf="@id/cardRegularTitleText"
+        app:layout_constraintTop_toBottomOf="@id/cardRegularTitleText"
+        tools:text="47780" />
+</androidx.constraintlayout.widget.ConstraintLayout>

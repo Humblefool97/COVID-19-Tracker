@@ -12,9 +12,13 @@ import com.tbs.covidtracker.R
 import com.tbs.covidtracker.model.AffectedCountryResponse
 import kotlinx.android.synthetic.main.item_countries_list.view.*
 
+/**
+ *
+ */
 class CountriesListAdapter(
     private val context: Context,
-    var affectedCountriesList: List<AffectedCountryResponse>
+    var affectedCountriesList: List<AffectedCountryResponse>,
+    var onItemClickCallback: (position: Int) -> Unit
 ) :
     RecyclerView.Adapter<CountriesListAdapter.CountriesViewHolder>() {
 
@@ -34,7 +38,7 @@ class CountriesListAdapter(
         notifyDataSetChanged()
     }
 
-    inner class CountriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class CountriesViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private val countriesIv: ImageView = view.countryImageView
         private val countryTv: TextView = view.countryTextView
         private val totalValTv: TextView = view.totalValTextView
@@ -51,9 +55,13 @@ class CountriesListAdapter(
                     .centerCrop()
                     .into(countriesIv)
                 countryTv.text = country
-                totalValTv.text = cases
-                activeValTv.text = active
-                deathTv.text = deaths
+                totalValTv.text = totalCases
+                activeValTv.text = totalActive
+                deathTv.text = totalDeaths
+                //set itemClick listener
+                view.setOnClickListener {
+                    onItemClickCallback(position)
+                }
             }
         }
     }
